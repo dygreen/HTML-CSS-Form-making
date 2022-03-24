@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <title>css16-정렬</title>
+ <style>
+   *{ margin: 0; padding: 0; }
+   body{ background-color: #666; }
+  
+   .talign{
+     width: 100%;
+     height: 500px;
+     background-color: #b7e786;
+   }
+
+   /* text-align (수평)속성은 block 형식의 태그에만 사용할 수 있다.
+   vertical-align (수직)속성은 img, input, select 테이블의 th, td 등에 사용할 수 있다 */
+
+   /* .tt1 { text-align: center; } -> inline 형식의 태그이기 때문에 적용되지 않음 */
+   .text1 { text-align: center; } /* span(inline)을 block 형식의 태그로 감싸고, 감싼 태그에 적용한다. */
+
+   /* .text2 img { text-align: center; } -> 적용되지 않음*/
+   .text2 { text-align: center; }
+
+   .text3 img { vertical-align: middle; } /* vertical-align 옆 기준(img, input 등)을 중심으로 text정렬 */
+   .text4 input { 
+     width: 300px;
+     height: 50px;
+     vertical-align: top;
+   }
+   .text5 { 
+     text-align: center; /* text만 가운데 정렬 / 부모 요소인 div는 가운데로 가지 않고 그 안에 있는 자식 요소만 정렬됨*/
+     margin: 0 auto; /* div요소 가운데 정렬 / 값이 2개이므로 상하(0),좌우(auto): 부모 요소의 가운데 정렬 */
+     width: 600px;
+     height: 100px;
+     background-color: #fffd90;
+    }
+
+
+    /* ## 탑메뉴 만들기 ## */
+    /* 수평 가운데 정렬 방법(1): 'margin:0 auto' 속성을 이용한다
+     .mainNav { 
+      margin: 0 auto;  -> width/height 지정 필수 
+      width: 790px; -> 콘텐츠의 크기만큼 가로 너비를 맞추어야 함
+      height: 100px;
+      background-color: pink;
+     } 
+     -> margin: 0 auto; (요소의 가운데 정렬) 속성을 사용하기 위해서는 반드시 가로크기가 있어야 한다. (width: 100%는 적용되지 않음)
+     */
+
+
+     /* 수평 가운데 정렬 방법(2): 'text-align: center' 속성을 이용한다
+     -> float를 이용하여 자식을 가로배열을 하면 상위부모에
+     'text-align:center'속성이 적용되지 않는다.
+     -> 해결방법: li의 부모인 ul에 'display:inline-block'속성을 적용한다.(ul 뿐만 아니라 block은 다 됨) */
+    .mainNav { 
+      text-align: center;
+      margin: 0 auto; /* width/height 지정 필수 */
+      width: 790px;
+      height: 100px;
+      background-color: pink;
+     }
+    .mainNav .nav {display: inline-block;}
+    .mainNav .nav li {
+      list-style-type: none;
+      float: left;
+      padding: 30px;
+    }
+    .mainNav .nav li a {
+      text-decoration: none;
+      color: #ccc;
+      font-size: 18px;
+      font-weight: bold;
+      text-shadow: 2px 2px 10px #000;
+    }
+    .mainNav .nav li a:hover {
+      color: #fff;
+      text-shadow: 2px 2px 10px #f00;
+      /* text-decoration: underline; */
+      /* border: 1px solid #f00;
+      border-width: 0 0 1px 0; */
+      border-bottom: 2px solid #f00;
+      padding-bottom: 10px;
+    }
+
+
+    /* ## 수평 수직 가운데정렬 ## */
+    .box_in { /* 부모 박스 */
+      width: 100%;
+      height: 300px;
+      background-color: #8080ff;
+      display: flex; /* 블록 수준의 플렉서블 박스 */
+      justify-content: center; /* 주축을 기준으로 배치방법을 조절(가로방향-수평) */
+      align-items: center; /* 교차축을 기준으로 배치방법을 조절(세로방향-수직) */
+    }
+    .box_in .box { /* 자식 박스 */
+      width: 100px;
+      height: 100px;
+      background-color: #ccc;
+      float: left;
+      margin: 0 5px; /* 값이 2개 -> 상하, 좌우 */
+      text-align: center;
+      /* vertical-align: middle; -> 적용되지 않음 */
+      line-height: 100px; /* 수직정렬 가운데 -> 부모의 높이값과 동일하게 설정, 한 줄일 때만 가능(한 줄 이상일 때는 실제 줄간격이 벌어짐) */
+    }
+    .box_in .box:hover { /* 박스 오버시 */
+      background-color: #000;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer; /* a태그 없이 강제로 손가락 모양이 나오도록 */
+    }
+
+
+
+    /* ## 이미지 오버효과 ## */
+    /* 수평수직 가운데 정렬 -> 정렬속성을 적용하기 위해 표로 변경하여 적용하는 방법
+    display: table; -> 표로 만든다.(html에서 table에 해당됨) **부모가 2개 있어야 함!
+    display: table-row; -> 표의 행으로 만든다. (html에서 tr에 해당됨)
+    display: table-cell; -> 표의 칸으로 만든다. (html에서 td에 해당됨) */
+    #img_ov1{
+      width: 100%;
+      height: 400px;
+      background-color: #80c2ff;
+      display: table; /* 상위부모에 적용 -> table */
+    }
+    #img_ov1 .img1{
+      display: table-cell; /* 다음 부모에 적용 -> td / tr 생략*/
+      text-align: center;
+      vertical-align: middle;
+    }
+    #img_ov1 .img1 img{
+      width: 350px;
+      height: 230px;
+      margin: 0 10px;
+      border: 1px solid #fff;
+    }
+    #img_ov1 .img1 img:hover {
+      opacity: 0.5;
+      border: 1px solid #fff;
+      border-radius: 30px 0 30px 0;
+      cursor: pointer;
+    }
+
+    #img_ov2{
+      width: 100%;
+      height: 400px;
+      background-color: #cb84eb;
+      /* display: table; -> 적용되지 않음 */
+      text-align: center;
+      /* vertical-align: middle; -> 적용되지 않음 */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #img_ov2 .img2{
+      /* display: table-cell;
+      text-align: center;
+      vertical-align: middle; -> 적용되지 않음 */
+      display: inline-block;
+      /* line-height: 400px; -> 적용되지 않음 (한 줄 이상 + 텍스트) */
+    }
+    /* 이미지를 삽입(img src...)하지 않고 배경으로 넣을 때는 반드시 가로, 세로 크기가 있어야 함 */
+    .mc01, .mc02, .mc03 {
+      /* 공통으로 적용 */
+      width: 200px;
+      height: 200px;
+      border: 3px solid #999;
+      border-radius: 50%;
+      float: left;
+      margin: 0px 20px;
+      background-position: -30px -10px; /* 배경이미지 위치(가로, 세로)(-는 올리는 것) */
+      cursor: pointer;
+    }
+    .mc01{ background-image: url(image/pic5.jpg); }
+    .mc01:hover{
+      border: 5px solid #000;
+      background-position: -50px -40px;
+    }
+    .mc02{ background-image: url(image/pic7.jpg); }
+    .mc02:hover{
+      border: 5px dotted #f00;
+      opacity: 0.6;
+    }
+    .mc03{ background-image: url(image/pic4.jpg); }
+    .mc03:hover{ background-image: url(image/pic3.jpg); }
+    /* 마우스 오버시 다른 이미지로 바뀌는 효과를 주려면 css에서 배경을 이용해서 이미지를 삽입해야 한다. */
+
+ </style>
+</head>
+<body>
+  <div class="talign">
+    <div class="text1">
+      <span class="tt1">이젠컴퓨터학원 종로점</span>
+    </div>
+    <div class="text2">
+      <img src="image/m.gif" alt="">
+    </div>
+    <div class="text3">
+      <img src="image/m.gif" alt="">수직정렬
+    </div>
+    <div class="text4">
+      <input type="text">수직정렬
+    </div>
+    <div class="text5">
+      <p>이젠컴퓨터학원 종로점</p>
+    </div>
+  </div>
+
+
+  <!-- 탑메뉴 만들기 -->
+  <div class="mainNav"> 
+    <ul class="nav">
+      <li><a href="#">NOTICE</a></li>
+      <li><a href="#">SHOES</a></li>
+      <li><a href="#">ACC</a></li>
+      <li><a href="#">BAG</a></li>
+      <li><a href="#">TOP</a></li>
+      <li><a href="#">DRESS</a></li>
+      <li><a href="#">BOTTOM</a></li>
+    </ul>
+  </div>
+
+
+  <div class="box_in">
+    <div class="box">box01</div>
+    <div class="box">box02</div>
+    <div class="box">box03</div>
+    <div class="box">box04</div>
+    <div class="box">box05</div>
+    <div class="box">box06</div>
+    <div class="box">box07</div>
+  </div>
+
+
+  <!-- img태그를 이용한 이미지 삽입 -->
+  <div id="img_ov1">
+    <div class="img1">
+      <img src="image/pic1.jpg" alt="food1">
+      <img src="image/pic2.jpg" alt="food2">
+      <img src="image/pic3.jpg" alt="food3">
+    </div>
+  </div>
+
+  <!-- background에 이미지 배경(hover시 이미지 변경할 때 사용) -->
+  <div id="img_ov2">
+    <div class="img2">
+      <div class="mc01"></div>
+      <div class="mc02"></div>
+      <div class="mc03"></div>
+    </div>
+  </div>
+</body>
+</html>
+
+
+<!-- 
+✨ 가로 가운데 정렬
+(1) 텍스트 가운데 정렬: 'text-align: center'
+-> block 또는 inline-block 속성을 가졌을 때만 사용할 수 있다.
+inline 속성에는 text-align이 적용되지 않는다. (float: left로 자식을 배열한 경우도 적용되지 않음)
+-> 해결: 최상위 부모 선택자에 'text-align: center'속성을 적용하고, 상위 부모를  'display: inline-block'속성을 적용한다.
+
+예) 
+ul 의 부모요소 {text-align: center;}
+ul {display: inline-block;}
+li {float: left;}
+
+
+(2)요소의 가운데 정렬: 'margin: 0 auto'
+-> block 속성을 가졌을 때만 적용된다. 가로값(width)을 지정해주어야 한다. (가로 100%는 적용되지 않음)
+
+예) 부모요소{width: 900px; margin: 0 auto;}
+-> 배경색(background:pink;)을 넣어서 컨텐츠에 맞게 가로크기를 정한다.
+
+--------------------------------------------------------------------------------
+
+✨ 세로 가운데 정렬
+(1) vertical-align: middle
+-> 부모에 'display: table' (높이값을 꼭 설정해야 함)을 주고,
+정렬을 하고자 하는 요소에 'display: table-cell; vertical-align: middle;'을 적용한다.
+
+
+(2) line-height
+-> 텍스트가 한 줄일 때나 이미지가 하나 들어가거나 할 때 사용하면 좋다.
+높이 값을 설정해주고 높이 값이랑 같은 값을 line-height로 설정해준다.
+
+ex) height: 100px; line-height: 100px;
+
+-------------------------------------------------------------------------------
+
+✨ 완벽하게 수직수평 정가운데 정렬 -> 플렉서블 박스
+선택자{
+  height: 100px (높이가 있어야 함)
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+ -->

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <title>css13-float 속성</title>
+  <style>
+    * { margin: 0; padding: 0; }
+
+    #row1 {
+      width: 500px;
+      border: 5px solid #999;
+      margin: 20px auto; /* 요소의 가운데 정렬 */
+      overflow: hidden;
+      /* 해결방법1...
+      자식이 모두 float를 적용하면 부모가 높이를 인식하지 못하는 문제 발생
+      -> 해결: float를 적용한 자식의 부모에게 'overflow: hidden;'을 적용함 */
+    }
+    #row1 .box01 {
+      width: 100px;
+      height: 100px;
+      border: 1px solid #999;
+      margin: 5px;
+      padding: 5px;
+      float: left;
+    }
+    #row1 .box02 {
+      width: 100px;
+      height: 100px;
+      border: 1px solid #999;
+      margin: 5px;
+      padding: 5px;
+      float: left;
+    }
+   
+   
+    /* 해결방법 2...
+    자식이 모두 float를 적용하면 부모가 높이를 인식하지 못하는 문제 발생
+    -> 해결: 맨 뒤에 float가 해지된 내용이 없는 빈 자식을 만든 후 부모(태그)에게 적용한다. */
+    .clear:after { /* 맨 뒤를 뜻하는 선택자 */
+      content: ""; /* 내용이 없음 */
+      display: block; /* block의 성질을 가지고 있는 자식을 만듦 */
+      clear: both; /* float의 left,right 모두 해제 */
+    }
+
+
+    #row2 {
+      width: 500px;
+      border: 5px solid #999;
+      margin: 20px auto; /* 요소의 가운데 정렬 */
+
+    }
+    #row2 .box01 {
+      width: 100px;
+      height: 100px;
+      border: 1px solid #999;
+      margin: 5px;
+      padding: 5px;
+      float: left;
+    }
+    #row2 .box02 {
+      width: 100px;
+      height: 100px;
+      border: 1px solid #999;
+      margin: 5px;
+      padding: 5px;
+      float: right;
+    }
+    #row2 .box03 {
+      width: 100px;
+      height: 100px;
+      border: 1px solid #999;
+      margin: 5px;
+      padding: 5px;
+      clear: both;
+      /* 해결방법 3...
+      float를 적용한 요소들 다음에 오는 요소에 직접 적용하는 방법
+      -> 해결: float를 적용한 요소 다음에 'clear:both;' 속성을 적용한다 */
+    }
+
+
+  </style>
+</head>
+<body>
+  <div id="row1">
+    <div class="box01">box01</div>
+    <div class="box02">box02</div>
+  </div>
+
+  <div id="row2" class="clear">
+    <div class="box01">box01</div>
+    <div class="box02">box02</div>
+    <!-- clear 속성으로 만든 자식이 맨 마지막에 들어감 -->
+    <div class="box03">box03</div>
+  </div>
+</body>
+</html>

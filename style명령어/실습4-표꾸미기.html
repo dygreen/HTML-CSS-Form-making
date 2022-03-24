@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <title>실습4-표 꾸미기</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
+  <style>
+   * {margin: 10px; padding: 0;}
+   body { font-family: 'Nanum Gothic', sans-serif; }
+   table {
+     border-collapse: collapse;
+     margin: 0 auto;
+     border-top: 5px solid rgb(0, 97, 189);
+    }
+   caption {
+     text-align: left;
+     color: rgb(0, 97, 189);
+     font-weight: bold;
+     font-size: 18px;
+   }
+   td { text-align: center; }
+   .top {
+     color: rgb(0, 97, 189);
+     font-weight: bold;
+     background-color: rgb(202, 240, 255);
+   }
+   p { 
+     font-size: 13px;
+     margin-left: 10px;
+    }
+
+   #tb1, #tb5, #tb8, #tb10 {
+     border: 1px solid #ccc;
+     border-width: 0 1px 1px 0;
+   }
+
+   #tb3, #tb6 {
+    border: 1px solid #ccc;
+   }
+
+   #td2, #tb4, #tb7, #tb9, #tb11 {
+     border: 1px solid #ccc;
+     border-width: 1px 0 1px 1px;
+   }
+  </style>
+</head>
+<body>
+  <table width="900px" height="300px" align="center">
+    <caption>이용요금</caption>
+    <tr>
+      <td id="tb1" class="top" rowspan="2">좌석종류</td>
+      <td id="tb2" class="top" colspan="2">항공권예약 구분(Booking Class)</td>
+    </tr>
+    <tr>
+      <td id="tb3" class="top">Y,B,M</td>
+      <td id="tb4" class="top">S,H,E,K,L,U,Q,G,X</td>
+    </tr>
+    <tr>
+      <td id="tb5">엑스트라 레그룸</td>
+      <td rowspan="3" id="tb6">무료</td>
+      <td id="tb7">유료</td>
+    </tr>
+    <tr>
+      <td id="tb8">전방 선호 좌석</td>
+      <td id="tb9">유료</td>
+    </tr>
+    <tr>
+      <td id="tb10">일반 좌석</td>
+      <td id="tb11">유료</td>
+    </tr>
+  </table>
+  <p>비상설 특별 할인 운임(N, T Class) 이용시, 엑스트라 레그룸 구매 불가 / 전방 선호 좌석 및 일반 좌석 유료 구매 가능</p>
+</body>
+</html>

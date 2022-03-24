@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <title>css5-여백과 테두리</title>
+ <style>
+   .boxx{
+     width: 200px;
+     height: 200px;
+     background-color: grey;
+     border-style: solid;
+     border-width: 20px;
+     border-color: red;
+     margin: 50px; /* 바깥 여백 */
+     padding: 30px; /* 안쪽 여백 */
+   }
+
+   .snd1 {
+    background-color: pink;
+    padding-left: 100px;
+    margin-left: 100px;
+   }
+
+   .snd2 {
+    background-color: pink;
+    width: 500px;
+    height: 50px;
+    margin-top: 100px;
+    padding-top: 50px;
+   }
+
+   .mbox1 {
+     width: 200px;
+     height: 100px;
+     margin: 30px;
+     background-color: blue;
+   }
+
+   .mbox2 {
+     width: 200px;
+     height: 100px;
+     margin: 50px;
+     background-color: red;
+   }
+
+   .mbox3 {
+     width: 200px;
+     height: 100px;
+     margin: 30px;
+     background-color: greenyellow;
+   }
+   /* 박스 요소의 margin 속성 사용시 주의할점
+   세로로 배치할 경우 마진과 마진이 만날 때 마진값이 큰쪽으로 겹쳐지는 현상이다.
+   이런 현상을 마진중첩(margin overlap), 또는 마진상쇄(margin collapse)라고 한다. */
+
+
+
+   .box {
+     width: 600px;
+     border-width: 5px;
+     border-color: orange;
+     margin-bottom: 20px;
+     padding: 10px;
+   }
+
+   .box1{border-style: none;}
+   .box2{border-style: dotted;}
+   .box3{border-style: dashed;}
+   .box4{border-style: solid;}
+   .box5{border-style: groove; border-color: #06c;}
+   .box6{border-style: ridge; border-color:#f06;}
+   .box7{border-style: double; border-color:#c00;}
+   .box8{border-style: inset; border-color:#0c3;}
+   .box9{border-style: outset; border-color:#c63;}
+
+   h2{
+    width: 800px;
+    height: 50px;
+    /* border-style: solid;
+    border-color: #f00;
+    border-width: 5px; */
+    /* border: 5px solid #f00; -> 축약시 */ /* 순서 상관 없음 */
+
+    /* border-style: solid;
+    border-color: #f00;
+    -
+    border-top-width: 10px;
+    border-bottom-width: 20px;
+    border-left-width: 15px;
+    border-right-width: 5px; */
+    border: solid #f00;
+    /* border-width: 10px; -> 축약시 값이 1개일 때 상하좌우 모두 */
+    /* border-width: 20px 10px; -> 축약시 값이 2개일 때 상하,좌우 */
+    /* border-width: 20px 10px 5px; -> 축약시 값이 3개일 때 상, 좌우, 하*/
+    /* border-width: 10px 5px 20px 15px; -> 축약시 값이 4개일 때 상,우,하,좌 */
+   }
+
+   h3{
+    /* border-style: solid;
+    border-color: blue;
+    border-top-width: 10px;
+    border-bottom-width: 10px;
+    border-right-width: 0px;
+    border-left-width: 0px;
+    margin-left: 100px;
+    padding-left: 100px; */
+
+    border: solid #00f;
+    border-width: 10px 0px;
+    margin-left: 100px;
+    padding-left: 100px;
+   }
+
+   p{
+    /* border-style: dotted;
+    border-width: 5px;
+    border-top-color: blue;
+    border-bottom-color: blue;
+    border-right-color: red;
+    border-left-color: red;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-right: 50px;
+    padding-left: 50px; */
+
+    border: dotted 5px;
+    border-color: blue red;
+    padding: 20px 50px;
+   }
+
+
+   table{
+     width: 400px;
+     height: 200px;
+     border: solid 2px green;
+     text-align: center; /* 텍스트의 수평정렬(가운데) */
+     margin: 0 auto; /* 요소(컨텐츠를 감싸고 있는 부모)의 가운데 정렬 */
+   }
+
+   table td{
+     border: 1px dotted red;
+   }
+ </style>
+</head>
+<body>
+  <img src="image/box_style.jpg" alt="박스속성">
+  <h1>바깥여백: margin</h1>
+  <h1>안쪽여백: padding</h1>
+  <div class="boxx">내용이 들어갑니다.</div>
+
+  <h5 class="snd1">언어란 무엇인가? 음성으로 의사를 표현하여 의지를 관철시키려는 의도가 있는 것.</h5>
+  <h5 class="snd2">의지를 관철시키려는 의도가 있건 없건 음성으로 의사를 표현하기만 하면 그것이 언어일까?</h5>
+  <hr>
+
+  <h1> 마진 중첩현상 </h1>
+  <div class="mbox1"></div>
+  <div class="mbox2"></div>
+  <div class="mbox3"></div>
+  <hr>
+
+
+
+  <h1> 테두리의 모양: border-style </h1>
+  <h1> 테두리의 두께: border-width</h1>
+  <h1> 테두리의 색상: border-color </h1>
+
+
+  <div class="box box1">테두리의 테두리 모양 속성: none</div>
+  <div class="box box2">테두리의 테두리 모양 속성: dotted </div>
+  <div class="box box3">테두리의 테두리 모양 속성: dashed </div>
+  <div class="box box4">테두리의 테두리 모양 속성: solid</div>
+  <div class="box box5">테두리의 테두리 모양 속성: groove</div>
+  <div class="box box6">테두리의 테두리 모양 속성: ridge</div>
+  <div class="box box7">테두리의 테두리 모양 속성: double</div>
+  <div class="box box8">테두리의 테두리 모양 속성: inset</div>
+  <div class="box box9">테두리의 테두리 모양 속성: outset</div>
+
+
+  <h2>연습중입니다...</h2>
+  <h3>아메리카노</h3>
+  <p>에스프레소의 향은 그대로 느끼면서 뜨거운 물을 부어 1:2 정도의 비율로 연하게 먹는 커피다.</p>
+
+
+  <table>
+    <tr><td>내용1</td><td>내용2</td><td>내용3</td></tr>
+    <tr><td>내용4</td><td>내용5</td><td>내용6</td></tr>
+    <tr><td>내용7</td><td>내용8</td><td>내용9</td></tr>
+  </table>
+</body>
+</html>

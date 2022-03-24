@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <title>css15-선택자</title>
+  <style>
+    /* #select1 h1 { color: #f00; } -> 후손선택자(선택자 태그 아래에 위치한 모든 태그)*/
+    #select1 > h1 { color: #f00; } /* 자손선택자(선택자 바로 한 단계 아래에 위치한 태그) */
+  
+  
+    /* 형태구조 선택자 */
+    #select2 h1:first-of-type{color: red;} /* h1태그중 첫번째 */
+    #select2 h2:first-of-type{color: orange;} /* h2태그중 첫번째 */
+    #select2 h3:first-of-type{color: blue;} /* h3태그중 첫번째 */
+    #select2 h3:last-of-type{color: green;} /* h3태그중 마지막번째 */
+    #select2 h2:nth-of-type(2){color: skyblue;} /* h2태그중 앞에서 2번째 */
+    #select2 h3:nth-of-type(3){color: pink;} /* h3태그중 앞에서 3번째 */
+    #select2 h3:nth-last-of-type(2){color: grey;} /* h3태그중 뒤에서 2번째 */
+
+
+    /* 일반구조 선택자 */
+    .list{
+      overflow: hidden; /* float 문제 해결 */
+    }
+    .list ul{}
+    .list ul li{
+      list-style-type: none;
+      float: left;
+      /* display: inline; -> 가로배치는 가능하나 사이의 기본간격(여백)이 생긴다 */
+      padding: 10px;
+    }
+
+    .list ul li:nth-child(even){background-color: pink;} /* 2,4,6 ...짝수(even) */
+    .list ul li:nth-child(2n+1){background-color: purple; color: #fff;} /* 1,3,5...홀수(odd) */
+    .list ul li:first-child{border-radius: 15px 0 0 15px;}
+    .list ul li:last-child{border-radius: 0 15px 15px 0;}
+
+
+    .box p {border-bottom: 1px dashed #000;}
+    .box p:first-letter{font-size: 300%; color: red;} /* p태그 안의 첫 글자는 글자크기 세배로 */
+    .box:before{content:"box의 맨앞에 문장을 삽입한다."; color: green;}
+    .box:after{content:"box의 맨뒤에 문장을 삽입한다."; color: orange;}
+
+
+    #select4 p:nth-child(3){color: red; font-weight: bold;} /* 일반구조 선택자 */
+    #select4 p:nth-of-type(3){color: green; font-weight: bold;} /* 형태구조 선택자 */
+    /* 일반과 형태구조 선택자의 차이
+    nth-child 일반구조 선택자는 부모요소의 모든 자식요소를 대상으로 n번째 자식을 선택하고,
+    nth-of-type 형태구조 선택자는 부모요소의 특정 요소만을 대상으로 n번째 자식을 선택한다. */
+
+
+    /* 동위선택자 */
+    #select5 h1+h2{color: red;}
+    /* h1태그의 바로 뒤에 위치하는 h2태그의 color 속성에 red를 적용 */
+
+    #select5 h1~h2{background-color: orange;}
+    /* h1태그의 뒤에 위치하는 h2태그의 background속성에 orange를 적용 */
+
+
+    /* 기본속성 선택자 (폼태그에서 주로 사용함)*/
+    /* input {background-color: yellow;} 
+    -> input 선택자에 적용하면 input의 모든 type에 적용됨*/
+    input[type=text]{background-color:red; width: 100px;}
+    input[type=password]{background-color: blue; width: 300px;}
+
+
+    /* 
+    특정범위는
+    nth-child(n+k):nth-child(-n+m) 형식을 취해주면 된다. (n부터 -n까지)
+    nth-child(n+4):nth-child(-n+8) -> 4번째에서 8번째
+
+    1,3,5,7...처럼 홀수만 선택할때는 nth-child(2n-1)
+    3,7,11...과 같은 경우 4n-1을 적용해야 한다.
+
+    n은 0부터 시작함.
+    -0+4=4, -1+4=3, -2+4=2, -3+4=1
+    */
+
+    /* ~5번째까지 */
+    #select6 ul li:nth-child(-n+5){
+      color: orange;
+      background-color: lightyellow;
+    }
+
+    /* 6~10번째까지 */
+    #select6 ul li:nth-child(n+6):nth-child(-n+10){
+      color: purple;
+      background-color: pink;
+    }
+
+    /* 11번째부터~ */
+    #select6 ul li:nth-child(n+11){
+      color:blue;
+      background-color: skyblue;
+    }
+
+  </style>
+</head>
+<body>
+  <h1>자손후손선택자</h1>
+  <div id="select1">
+    <h1>Lorem ipsum</h1>
+    <h1>Lorem ipsum</h1>
+    <div id="nav">
+      <h1>Navigation</h1>
+      <h1>Navigation</h1>
+      <h1>Navigation</h1>
+    </div>
+  </div>
+  <hr>
+
+  <h1>형태구조 선택자</h1>
+  <div id="select2">
+    <h1>Header - 1</h1>
+    <h2>Header - 2</h2>
+    <h2>Header - 2</h2>
+    <h2>Header - 2</h2>
+    <h3>Header - 3</h3>
+    <h3>Header - 3</h3>
+    <h3>Header - 3</h3>
+    <h3>Header - 3</h3>
+    <h3>Header - 3</h3>
+    <h2>Header - 2</h2>
+    <h1>Header - 1</h1>
+  </div>
+  <hr>
+
+
+  <h1>일반구조 선택자</h1>
+  <div id="select3">
+    <div class="list">
+      <ul>
+        <li>일요일</li>
+        <li>월요일</li>
+        <li>화요일</li>
+        <li>수요일</li>
+        <li>목요일</li>
+        <li>금요일</li>
+        <li>토요일</li>
+      </ul>
+    </div>
+    <div class="box">
+      <p>COMPANY</p>
+      <p>PRODUCT</p>
+      <p>SERVICE</p>
+    </div>
+  </div>
+  <hr>
+
+
+  <h1>일반과 형태 구조 선택자의 차이</h1>
+  <div id="select4">
+    <p>구조선택자</p>
+    <span></span>
+    <p>구조선택자</p> <!-- p:nth-child(3)일반구조 -> 중간에 있는 <span>까지 포함해서 3번째임 -->
+    <span></span>
+    <p>구조선택자</p> <!-- p:nth-of-type(3)형태구조 -> 선택된 <p>중에서 3번재임 -->
+  </div>
+  <hr>
+
+
+  <h1>동위선택자</h1>
+  <div id="select5">
+    <h1>Header - 1</h1>
+    <h2>Header - 2</h2>
+    <h2>Header - 2</h2>
+    <h2>Header - 2</h2>
+    <h2>Header - 2</h2>
+    <h3>Header - 3</h3>
+    <h2>Header - 2</h2>
+  </div>
+  <hr>
+
+
+  <h1>기본 속성 선택자: 선택자[속성=값]</h1>
+  <form>
+    <input type="text">
+    <input type="password">
+  </form>
+  <hr>
+
+
+
+  <h1>00~00까지 범위 지정하기</h1>
+  <div id="select6">
+    <ul>
+      <li>강남캠퍼스</li>
+      <li>종로캠퍼스</li>
+      <li>신촌캠퍼스</li>
+      <li>노원캠퍼스</li>
+      <li>상봉캠퍼스</li>
+      <li>대림캠퍼스</li>
+      <li>안양캠퍼스</li>
+      <li>의정부캠퍼스</li>
+      <li>구리캠퍼스</li>
+      <li>성남캠퍼스</li>
+      <li>일산캠퍼스</li>
+      <li>대전캠퍼스</li>
+      <li>전주캠퍼스</li>
+      <li>IT아카데미</li>
+    </ul>
+  </div>
+</body>
+</html>

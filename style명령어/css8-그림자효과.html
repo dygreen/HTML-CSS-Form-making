@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <title>css8-그림자효과</title>
+  <style>
+    body { 
+      font-family: Arial; 
+      background-color: #808080;
+    }
+    
+    .shadow1{
+      font-size: 48px;
+      color: #fff;
+      text-shadow: 5px 10px 5px #000;
+      /* 오른쪽 거리 / 아래쪽 거리 / 흐림도 / 색상 */
+    }
+
+    .shadow2{
+      font-size: 55px;
+      color: #333;
+      text-shadow: -3px -3px 5px #fff;
+      /* 왼쪽 거리 / 위쪽 거리 / 흐림도 / 색상 */
+    }
+
+    .shadow3{
+      font-size: 60px;
+      text-shadow: 0 0 4px #ccc,
+      0 -5px 4px #ff3,
+      2px -10px 6px #fd3,
+      -2px -15px 11px #f80,
+      2px -19px 18px #f20;
+    }
+
+    div{
+      border: 3px solid #000;
+      background-color: #fff;
+      text-shadow: 5px 2px 5px #f00;
+      box-shadow: 10px 10px 30px #000;
+    }
+
+    .bttn{
+      width: 200px;
+      height: 100px;
+      background-color: blue;
+      border: 1px solid #000;
+      border-radius: 50px;
+      margin: 50px;
+    }
+
+    #shd1{
+      box-shadow: 10px 10px 5px #666;
+    }
+
+    #shd2{
+      box-shadow: 10px 10px 50px #fff inset;
+      /* inset: 안쪽 그림자 (box-shadow에서만 가능)*/
+    }
+
+    /* 구글에서 자료 복사 */
+    .shd3 {
+      width: 300px;
+      height: 300px;
+      border: none; /* 위에 div에 공통으로 넣은 border 속성 제거 */
+      box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+    }
+  </style>
+</head>
+<body>
+  <h1>텍스트 그림자 효과: text-shadow</h1>
+  <h2 class="shadow1">Joandora</h2>
+  <h2 class="shadow2">Joandora</h2>
+  <h2 class="shadow3">Joandora</h2>
+
+  <h1>박스 그림자 효과: box-shadow</h1>
+  <div><h1>텍스트 또는 박스에 그림자 효과 만들기</h1></div>
+  <div class="bttn" id="shd1"></div>
+  <div class="bttn" id="shd2"></div>
+
+  <div class="shd3"></div>
+</body>
+</html>
+
+
+<!-- 
+  구글에서 'box shadow css'라고 검색!
+  https://getcssscan.com/css-box-shadow-examples 
+ -->

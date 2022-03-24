@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <title>css3-텍스트 스타일</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inspiration&display=swap" rel="stylesheet">
+  <style>
+    .tt1{font-family: 맑은고딕,돋움,굴림;}
+    .tt2{font-family:'바탕체','굴림체';}
+    .tt3{font-family: 궁서체;}
+
+
+    .tt4{font-style: italic;} /* 웹에서 주로 사용함 */
+    .tt5{font-style: oblique;}
+
+    .tt6{font-weight: bold;}
+    .tt7{font-weight: 900;} /* 100~900: 폰트의 종류별로 다를 수 있다. */
+
+    .tt8{font-size: xx-small;}
+    .tt9{font-size: x-small;}
+    .tt10{font-size: small;}
+    .tt11{font-size: medium;}
+    .tt12{font-size: large;}
+    .tt13{font-size: x-large;}
+    .tt14{font-size: xx-large;}
+    .tt15{font-size: smaller;}
+    .tt16{font-size: 12pt;}
+    .tt17{font-size: 5px;}
+    .tt18{font-size: 180%;}
+
+    /* .tt19{
+      font-family: 궁서체;
+      font-weight: bold;
+      font-size: 20px;
+      font-style: italic; 
+    } */
+    /* 축약하는 방법은 스타일 명령어들의 공통어를 찾아서,
+    공통어를 제일 앞에 뺴고 :(콜론) 다음에 속성값들만 나열한다. */
+
+    .tt19{font: bold italic 20px 궁서체;}
+    /* 폰트 관련 명령어들을 축약시에는 명령어의 순서가 정해져있다.
+    폰트 축약 순서: 스타일->사이즈->글꼴(글자크기와 글꼴은 반드시 있어야 함)
+    font:[font-weight, font-style, font-variant]->[font-size/line-height]->[font-family]; */
+
+
+    .webf1{
+      font-family: 'Nanum Gothic', sans-serif;
+      font-size: 46px;
+      color: #f00;
+      font-weight: 400;
+      } /* sans-serif: 앞 글씨가 안 먹을 때 기본체 */
+    .webf11{
+      font-family: 'Nanum Myeongjo', serif;
+      font-size: 32px;
+      color: orange;
+      font-weight: 900;
+    }
+    .webf2{
+      font-family: 'Fredoka', sans-serif;
+      font-size: 40px;
+      color: greenyellow;
+      font-weight: 600;
+    }
+    .webf3{
+      font-family: 'Inspiration', cursive;
+      font-size: 60px;
+      color: salmon;
+      font-weight: 400;
+    }
+
+
+
+    @font-face{
+    font-family: SeoulHangangB; /* 아래의 변환 폰트를 임의의 글꼴명으로 만들어준다 */
+    src: url('font/SeoulHangangB.woff') format('woff');
+    /* 변환한 폰트 파일의 경로와 형식을 지정 */
+    }
+    .webf4{
+      font-family: SeoulHangangB;
+      font-size: 36px;
+      color: blueviolet;
+    }
+
+
+    .author{ text-align: right; }
+    .foot{ text-align: center; }
+    .foot_t{ text-align: right; } /* 적용되지 않음 (span = inline 태그)*/
+
+    .t1{ vertical-align: top; }
+    .t2{ vertical-align: middle; }
+    .t3{ vertical-align: bottom; }
+
+
+    
+  </style>
+</head>
+<body>
+ <h1>글꼴의 종류: font-family</h1>
+ <p>
+   <span class="tt1">둘 이상의 글꼴을 지정할 때</span>
+   <span class="tt2">여기는 굴림체나 바탕체로</span>
+   <span class="tt3">여기는 궁서체로</span>
+ </p>
+ <hr>
+
+
+ <h1>글꼴 스타일: font-style</h1>
+ <p> normal,
+   <span class="tt4">italic기울임체</span>
+   <span class="tt5">oblique기울임체</span>
+ </p>
+ <hr>
+
+
+ <h1>글꼴 굵기: font-weight</h1>
+ <p>보통문자와 
+   <span class="tt6">bold 굵은문자</span>
+   <span class="tt7">(100,200...900)수치를 입력한 글자 크기</span>
+ </p>
+ <hr>
+
+
+ <h1>글꼴 크기: font-size</h1>
+ <p>
+   <span class="tt8">xx-small</span>
+   <span class="tt9">x-small</span>
+   <span class="tt10">small</span>
+   <span class="tt11">medium</span>
+   <span class="tt12">large</span>
+   <span class="tt13">x-large</span>
+   <span class="tt14">xx-large</span>
+   <span class="tt15">smaller</span>
+   <span class="tt16">12pt</span>
+   <span class="tt17">5px</span>
+   <span class="tt18">180%</span>
+ </p>
+
+
+ <h1>명령어 축약해서 사용하기</h1>
+ <p><span class="tt19">폰트관련 명령어 묶어서 사용하기<br>
+  폰트관련 명령어 묶어서 사용하기</span></p>
+ <hr>
+
+
+<h1>웹 폰트 사용하기</h1>
+<!-- (1) CDN방식: 무료 구글 주소를 연결하여 적용하는 방법 -->
+<p class="webf1">나눔고딕을 웹폰트로 사용합니다.</p>
+<p class="webf11">나눔명조를 웹폰트로 사용합니다.</p>
+<p class="webf2">webdesign and webpublishing</p>
+<p class="webf3">Park Do Yeon</p>
+
+
+<!-- (2) 서버에 직접 업로드 한 후 적용하는 방법 -->
+<p class="webf4">서버에 업로드하여 웹폰트 적용하기</p>
+<!-- 웹 폰트 서버에 업로드해서 사용하는 형식 -->
+<!-- @font-face{
+  font-family: 글꼴이름;
+  src: url(글꼴파일경로) format(파일유형);
+} -> woff로 파일을 변환 후 파일명을 영문으로 변경한다.-->
+<hr>
+
+
+<h1>수평정렬(가로)의 종류: text-align</h1>
+<!-- text-align 속성은 block 형식의 태그에만 사용할 수 있다. -->
+<p> 사실 정렬방법에는 [left, right, center] 외에 [justify]라는 것이
+  있습니다. 소위 [양끝정렬]이라는 것인데 이 정렬방법은 실제로 사용될 경우
+  문서의 모양이 원하는 형태로 나타나지 않아 지금은 거의 사용되고 있지 않습니다.</p>
+<p class="author">[글: 영진기획 2팀]</p>
+<div class="foot">
+  <p>-감상문을 보내주세요-</p>
+  <p>&copy;copyright 2021 youngjin.com. inc. all right Reserved.</p>
+</div>
+<span class="foot_t">웹퍼블리싱</span> <!-- text-align: inline 형식의 태그라 적용되지 않음 -->
+
+
+<h1>수직정렬(세로)의 종류: vertical-align</h1>
+<!-- vertical-align속성은 img, input, select, 테이블의 th, td 등에 사용할 수 있다. -->
+<img class="t1" src="image/m.gif">top지정<p> <!-- p = 문단띄기 (혼자 쓸 수 있음) -->
+<img class="t2" src="image/m.gif">middle지정<p>
+<img class="t3" src="image/m.gif">bottom지정<p>
+<hr>
+
+
+
+<h1>선의 종류: text-decoration</h1>
+<p>
+  <span class="ts6">underline 밑줄</span>
+  <span class="ts7">line-through 취소선</span>
+  <span class="ts8">overline 윗줄</span>
+  <span><a href="#">none 하이퍼링크에 밑줄 없애기</a></span>
+</p>
+<hr>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <title>css14-box-sizing 속성</title>
+  <style>
+    .wrapper {
+      width: 300px;
+      height: 100px;
+      border: 5px solid #ffb2f5;
+      background-color: #ffd0ec;
+    }
+
+    .one, .two {
+      float: left;
+      width: 150px;
+      height: 100px;
+      border: 5px solid purple;
+      background-color: #ccc;
+    }
+    /* .one, .two {
+      float: left;
+      width: 140px; -> width 안에 border가 포함이 안되므로 좌우의 border 10px만큼을 줄여준다.
+      height: 90px; -> height 안에 border가 포함이 안되므로 상하의 border 10px만큼을 줄여준다.
+      border: 5px solid purple;
+      background-color: #ccc;
+    } */
+
+
+    .one {box-sizing: border-box;} /* margin 속성만 포함 (padding, border 는 신경 안씀, margin만 신경쓰면 됨)*/
+    .two {box-sizing: content-box;} /* padding,border 속성 포함 */
+  </style>
+</head>
+<body>
+  <h3>box-sizing: border-box;</h3>
+  <div class="wrapper">
+    <div class="one">50%</div>
+    <div class="one">50%</div>
+  </div>
+  
+  <h3>box-sizing: content-box;</h3>
+  <div class="wrapper">
+    <div class="two">50%</div>
+    <div class="two">50%</div>
+  </div>
+</body>
+</html>
+
+<!-- *box-sizing 속성
+width와 height 속성은 글자를 감싸는 영역의 크기를 지정하는 스타일 속성이며,
+box-sizing 속성은 width 속성과 height 속성이 차지하는 범위를 지정한다.
+
+전체너비 = width + 2x(margin+border+padding)
+전체높이 = height +2x(margin+border+padding)-->
