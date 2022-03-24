@@ -1,0 +1,42 @@
+@import url(common.css);
+
+body {
+  background-image:url(../image/section-bg.png);
+  color: #999;
+}
+
+/* 전체영역 */
+#form {
+  width: 900px;
+  margin: 50px auto;
+}
+
+/* 로고 텍스트 */
+h1 span {
+  color: #fff;
+  font-size: 24px;
+  text-transform: uppercase; /* 대문자로 변환 */
+  padding-left: 10px;
+  /* margin-top: 30px; -> 적용되지 않음 */
+  vertical-align: bottom;
+}
+
+.formBox {
+  width: inherit; /* 부모의 속성값을 상속받음 -> width:900px; */
+  height: 450px;
+  background:url(../image/login-bg.jpg) no-repeat;
+  margin-top: 20px;
+  box-shadow: 1px 2px 4px #884a28;
+}
+
+.formContent {
+  width: 400px;
+  height: 370px;
+  /* background: #fff;
+  opacity: 0.8; -> 요소 안에 있는 내용들도 불투명해짐 */
+  background: rgba(255,255,255,0.8);
+  float: right;
+  /* text-align:right; -> 적용되지 않음 */
+  margin: 10px 10px 0 0;
+  padding: 50px 20px 10px;
+}

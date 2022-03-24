@@ -1,0 +1,101 @@
+@import url(common.css);
+
+
+body { border-top: 15px solid #333; }
+
+.login { border-top: 50px solid #f63; }
+
+.login h1 {
+  font-size: 60px;
+  font-family: Arial, sans-serif;
+  color:#d9a0ff;
+  letter-spacing: -3px; /* 글자간격 */
+  text-align: center;
+  margin-top: 50px;
+}
+
+.login fieldset {
+  width: 330px;
+  border: 5px solid #efefef;
+  border-radius: 15px;
+  margin: 20px auto;
+  padding: 50px;
+  /* overflow: hidden; -> float를 적용하지 않은 다른 자식들을 포함한 경우는 적용되지 않음*/
+}
+
+/* 왼쪽 아이디 비밀번호 */
+.login2 { float: left; }
+
+.login2 .labelstyle {
+  display: inline-block;
+  width: 60px;
+  font-weight: bold;
+  letter-spacing: -1px;
+}
+
+/* .login2 input {
+  width: 150px;
+  border: 1px solid #999;
+  padding: 2px;
+  margin-bottom: 5px;
+} */
+input[type=text], input[type=password] {
+  /* 기본 속성 선택자 사용 => 아이디,비번 입력박스만 적용 */
+  width: 150px;
+  border: 1px solid #999;
+  padding: 2px;
+  margin-bottom: 5px;
+}
+
+
+/* 로그인 버튼 */
+.login .btnlogin {
+  float: left;
+  margin-left: 10px;
+  width: 80px;
+  height: 50px;
+  background: #f63;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+.login .btnlogin:hover {
+  background: #d9a0ff;
+  color: #000;
+  cursor: pointer;
+  box-shadow: 2px 2px 5px #000;
+}
+
+/* 아이디 저장 / 보안접속 */
+.login .btn1 {
+  clear: both;/* float 문제해결 => float를 적용한 요소 바로 다음에 오는 요소에 직접 적용 */
+  margin-left: 65px; 
+  margin-top: 50px;
+  background: pink;
+  padding: 10px 0;
+}
+
+/* 회원가입, 아이디비번 찾기 */
+.btn2 { margin: 10px 0 0 60px; }
+
+.btn2 .btnjoin {
+  background: #999;
+  border-radius: 5px;
+  padding: 7px;
+  color: #fff;
+  border-style:none;
+}
+
+.btn2 .btnsearch {
+  background: #ccc;
+  border-radius: 5px;
+  padding: 7px;
+  border-style: none;
+}
+
+.btnjoin:hover, .btnsearch:hover {
+  background: #000;
+  color:#fff;
+  cursor: pointer;
+}

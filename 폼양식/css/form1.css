@@ -1,0 +1,74 @@
+@import url(common.css);
+
+.login {
+ width: 270px;
+ margin: 50px auto; /* 요소의 가운데 정렬 */
+}
+/* 띄어쓰기를 하면(form .login) = form태그 밑에(감싸고) 있는 login 태그 -> 오류남
+띄어쓰기를 안하면(form.login) = form태그 안에 있는 login */
+
+.login fieldset {
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+
+.login fieldset legend {
+  width: 80px;
+  height: 30px;
+  background: #00d382;
+  border-radius: 0 10px 0 10px;
+  /* text-align: center; -> 글자와 함께 legend 박스도 같이 움직임 */
+}
+/* block 만 width/height/margin상하 가 적용됨. inline은 적용되지 않음(예외 있음: input) -> display 속성*/
+
+.login fieldset legend h2 {
+  color: #fff;
+  font-size: 16px;
+  text-align: center;
+  line-height: 30px; /* 수직 정렬 가운데 -> 텍스트가 한 줄일 때 높이와 동일하게 줄간격을 설정 */
+  text-transform: uppercase;
+}
+
+.login label {
+  display: inline-block;
+  /* label은 inline태그 이므로 width, height, margin상하 적용되지 않음
+  해결-> display:inline-block으로 변경해서 적용함 */
+  width: 60px;
+  text-align: right;
+  margin-bottom: 20px;
+}
+
+.login input {
+  /* input은 inline형식의 태그이지만 width, height등의 속성이 적용됨(예외) */
+  width: 120px;
+  height: 20px;
+  background: #e8e8e8;
+  border: 1px solid #ccc;
+  /* padding-left: 5px; 
+  -> 안쪽여백인 padding을 사용하면 여백만큼 가로너비도 늘어남*/
+  text-indent: 5px; /* 들여쓰기 -> 가로너비는 변하지 않고 안의 글자만 옆으로 이동*/
+}
+
+/* input 박스 클릭시 생기는 테두리 없애기 & 색상 바꾸기 
+outline속성: html 요소의 가장 바깥 부분을 둘러싸고 있는 부분이다.
+border속성처럼 style, width, color 속성이 있다
+폼태그와 a태그처럼 커서가 있는 곳에 사용할 수 있다*/
+input:focus { outline:none; }
+/* input:focus { outline: 2px solid #f00; } -> 색상 바꾸기 */
+
+/* 로그인 버튼 */
+input[type=submit]{
+  width: 122px;
+  height: 22px;
+  background:#00d382;
+  color: #fff;
+  border: none;
+  /* padding-left: 64px; -> 안쪽에서만 변경됨 */
+  margin-left: 63px;
+}
+
+input[type=submit]:hover {
+  background: #000;
+  color: yellow;
+  cursor: pointer;
+}
