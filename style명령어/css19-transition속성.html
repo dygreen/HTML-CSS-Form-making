@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <title>css19-transition 속성</title>
+ <style>
+   #ex1, #ex2, #ex3{display:inline-block;} 
+   /* 하이퍼링크의 영역이 넘치지 않게 - 이 설정을 하지 않으면 div(block)이라 요소 외 다른 영역에 hover해도 transition속성이 먹음 - 따라서 inline-block으로 변경해야 함*/
+
+   #ex1 div{
+     width: 100px;
+     height: 100px;
+     background: red;
+     cursor: pointer;
+     /* transition-property: background, border-radius; => all */
+     /* transition-duration: 1s;
+     transition-delay: 2s;
+     timing-function: ease-in-out; */
+
+     transition: all 1s ease-in-out; /* hover에도 걸어도 되지만, 안 먹힐 때가 있으므로 hover하기 전(out)에 거는 습관! */
+   }
+   #ex1:hover div{ /* 부모인 "#ex1"에 마우스 오버시 자식인 "div"가 어떻게 한다...*/
+     background: blue;
+     border-radius: 50%;
+   }
+
+   #ex2 div{
+     width: 100px;
+     height: 100px;
+     border: 2px solid #000;
+     background: url(image/f1.png) no-repeat center center;
+     cursor: pointer;
+     transition: all 1s ease-in;
+   }
+   #ex2:hover div{
+     border-radius: 50px;
+     border: 2px solid blue;
+     background: url(image/f2.png) no-repeat center center;
+   }
+
+   #ex3 div{
+     float: left;
+     width: 100px;
+     height: 50px;
+     margin: 5px 10px;
+     padding: 5px;
+     color: #fff;
+     background-color: #006aff;
+     border-radius: 5px;
+     text-align: center;
+     font-weight: bold;
+   }
+   #ex3:hover div{height: 400px; cursor:pointer;}
+   /* hover를 부모에 적용하는 경우는 부모영역 전체가 마우스오버 영역이 됨 */
+   /* #ex3 div:hover{height: 400px; cursor:pointer;} 
+   hover를 자식에게 적용하는 경우는 자식 각각의 영역이 마우스오버 영역이 됨 */
+   
+   #ex3 .ease{transition: all 3s ease;}
+   #ex3 .linear{transition: all 3s linear;}
+   #ex3 .ease-in{transition: all 3s ease-in;}
+   #ex3 .ease-out{transition: all 3s ease-out;}
+   #ex3 .ease-in-out{transition: all 3s ease-in-out;}
+
+   #transform{
+     width: 200px;
+     height: 200px;
+     background-color: #f90;
+     margin: 50px auto;
+     cursor: pointer;
+     transition: all 0.5s;
+   }
+   #transform:hover{transform:rotate(90deg);}
+
+   .boxContent div{
+     display: inline-block;
+     width: 150px;
+     height: 150px;
+     box-shadow: 1px 2px 4px #666;
+   }
+   .box1{background-color:#fc0; transition: all 0.5s;}
+   .box2{background-color:#6cf; transition: all 0.5s;}
+   .box3{background-color:#9c0; transition: all 0.5s;}
+   .box4{background-color:#f00; transition: all 0.5s;}
+   .box5{background-color:#000; transition: all 0.5s;}
+   .box1:hover,
+   .box2:hover,
+   .box3:hover,
+   .box4:hover,
+   .box5:hover{transform:scale(1.5,1.5); cursor:pointer;}
+ </style>
+</head>
+<body>
+  <h1>도형 위로 마우스 포인터를 올려보세요!</h1>
+  <div id="ex1">
+    <div></div>
+  </div>
+
+  <p>배경이미지 넣기</p>
+  <div id="ex2">
+    <div></div>
+  </div>
+
+  <h1>timing-function: 트렌지션 효과의 곡선형태</h1>
+  <div id="ex3">
+    <div class="ease">ease</div>
+    <div class="linear">linear</div>
+    <div class="ease-in">ease-in</div>
+    <div class="ease-out">ease-out</div>
+    <div class="ease-in-out">ease-in-out</div>
+  </div>
+
+  <div id="transform"></div>
+  <div class="boxContent">
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="box3"></div>
+    <div class="box4"></div>
+    <div class="box5"></div>
+  </div>
+</body>
+</html>
+
+<!-- 
+  *트렌지션이란 한 스타일에서 다른 스타일로 바뀌는 것을 말한다.
+  (바뀌는 시간을 조절)
+
+  👉 transition: property값 duration값 timing-function값 delay값
+
+  예)transition: all 1s linear; -> 요소의 모든 부분에 1초동안 linear 적용
+
+  *timing-function값 (탄력 함수)
+  linear: 시작에서 끝까지 똑같은 속도로 트렌지션을 진행한다.
+  ease:처음에는 천천히 시작하고 점점 빨라지다가 마지막엔 천천히 끝난다. 기본값
+  ease-in: 트렌지션 시작을 느리게 한다.
+  ease-out: 트렌지션을 느리게 끝낸다.
+  ease-in-out: 느리게 시작하고 느리게 끝난다.
+ -->
