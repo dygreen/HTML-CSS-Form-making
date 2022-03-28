@@ -1,0 +1,74 @@
+@import url(common.css);
+
+#nav{
+  width: 100%;
+  height: 50px;
+  background: #333;
+  border-top: 5px solid lightblue;
+  text-align: center;
+}
+
+/* 주메뉴 */
+/* 자손선택자(>) 사용 -> 첫번째 나오는 li에만 적용(주메뉴를 말함) -> 후손선택자를 선택하면 서브메뉴까지 모두 적용이 됨 */
+#nav>ul{
+  display: inline-block;
+}
+/* li에 float:left을 사용했다면, ul에 display:inline-block, 최상위에 text-align:center를 해야 함 -> 메뉴바를 (화면의)정가운데로 정렬할 때 사용하는 방법 */
+
+#nav>ul>li{
+  float: left;
+  width: 150px; /* padding은 약간의 오차가 있을 수 있음 */
+  border-right: 1px solid rgba(255,255,255,0.1);
+  color: #ccc;
+  font-size: 16px;
+  line-height: 50px;
+}
+#nav>ul>li:first-child{border-left: 1px solid rgba(255,255,255,0.1);}
+
+
+/* #nav>ul>li>a{
+  color: #ccc;
+  font-size: 16px;
+  line-height: 50px;
+  display: block; /* a태그(inline)에 hover를 걸었을 때, block으로 바꿔서 전체 영역에 배경색이 채워지도록 함 */
+/* }
+#nav>ul>li>a:hover{
+  background: #97c444;
+  color: #333;
+  font-weight: bold;
+} */ 
+/* -> a(a안에는 포함된 자식이 없음)에 hover를 적용할 경우 주메뉴에서 서브메뉴로 내려갈 때 주메뉴의 오버효과가 없어짐
+->해결: 주메뉴에서 서브메뉴로 내려갈 때도 주메뉴의 오버효과가 나타나게 하려면 hover를 li(모든 자식을 포함함)에 적용해야 함 */
+
+
+/* li에 hover를 적용해야 주메뉴의 현재위치 활성화가 가능함 (a에 넣은 효과들을 통합해서 넣기)-> setting file에서 li에도 색깔을 넣을 수 있게끔 inherit를 만들어놓았음(원래는 넣을 수 없음)*/
+#nav>ul>li:hover{
+  background: #97c444;
+  color: #333;
+  font-weight: bold;
+}
+
+
+/* 주메뉴에 해당하는 li에 마우스 오버를 하면 자식인 서브 ul를 보이게 함 */
+#nav>ul>li:hover ul{display: block;}
+
+/* 서브메뉴 */
+#nav>ul>li ul{display: none;}  /* 서브메뉴 숨기기 */
+
+  #nav>ul>li ul li{
+    height: 50px;
+    background: #333;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  #nav>ul>li ul li:last-child{border-bottom: 0;}
+
+  #nav>ul>li ul li a{
+    display: block;
+    color: #ccc;
+    line-height: 50px;
+  }
+  #nav>ul>li ul li a:hover{
+    background: #97c444;
+    color: #fff;
+  }

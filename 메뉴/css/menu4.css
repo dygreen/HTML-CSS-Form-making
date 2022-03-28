@@ -1,0 +1,62 @@
+@import url(common.css);
+
+#nav{
+  width: 100%;
+  height: 50px;
+  background: #333;
+  border-top: 5px solid lightblue;
+  text-align: center;
+}
+
+/* 주메뉴 */
+#nav>.gnb{display: inline-block;}
+
+#nav>.gnb>li{
+  float: left;
+  width: 150px; 
+  border-right: 1px solid rgba(255,255,255,0.1);
+  color: #ccc;
+  font-size: 16px;
+  line-height: 50px;
+  transition: all 0.5s ease-out; /* 주메뉴 오버시 배경색등장에 트렌지션 적용(hover전=out에 걸기) */
+}
+
+#nav>.gnb>li:first-child{border-left: 1px solid rgba(255,255,255,0.1);}
+
+#nav>.gnb>li:hover{
+  background: #97c444;
+  color: #333;
+  font-weight: bold;
+}
+
+
+/* 서브메뉴 */
+  .dropsub{
+    width: 150px;
+    height: 0; /* 초기높이를 0으로 주고 각 메뉴별로 높이를 지정 */
+    background: #333;
+    overflow: hidden; /* 넘치는 자식 숨기기 */
+    transition: height 0.5s ease-in; /* 주메뉴 오버시 내려오는 서브메뉴에 트렌지션 적용(height대신 all도 가능함) */
+  }
+
+  /* 주메뉴에 오버를 할 때 각각의 서브 메뉴의 높이 설정 */
+  .dropmenu:hover .dropsub{height: 150px;}
+  .dropmenu:hover .dropsubTwo{height: 200px;}
+  .dropmenu:hover .dropsubThree{height: 100px;}
+  .dropmenu:hover .dropsubFour{height: 150px;}
+
+  .dropsub li{border-bottom: 1px solid rgba(255,255,255,0.1);}
+
+  .dropsub li:last-child{border-bottom: 0;}
+
+  .dropsub li a{
+    display: block;
+    color: #ccc;
+    line-height: 50px;
+    transition: all 0.5s ease-in;
+  }
+  
+  .dropsub li a:hover{
+    background: #97c444;
+    color: #fff;
+  }
