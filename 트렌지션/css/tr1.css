@@ -1,0 +1,226 @@
+@import url(common.css);
+
+body{
+  background: #d8eaf8;
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#container{
+  width: 950px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* 자손선택자: 부모 #container의 첫번때 나오는 <p> */
+#container>p{
+  color: #999;
+  margin-bottom: 50px;
+}
+
+#container .photo{width: inherit; /*부모값을 상속받음->950px;*/}
+
+#container .photo li{
+  position: relative; /* 부모 기준 설정 */
+  float: left;
+  width: 300px;
+  height: 250px;
+  cursor: pointer;
+  margin: 0 10px 10px 0;
+}
+/* 모든 부모에 relative를 설정(+자식 설정)해야 그를 기준으로 transition효과를 넣을 수 있음 */
+
+#container .photo li div{
+  position: absolute;
+  background: #000;
+}
+
+#container .photo li img{width: 100%; height: 100%;} /* 부모박스 크기에 꽉 채우게 가로,세로 크기 통일 */
+
+
+
+/* 1번 이미지 */
+#container .photo li .block1{
+  width: 100%;
+  height: 0;
+  /* opacity: 0.5; -> 요소안의 글자도 같이 불투명해짐 */
+  background: rgba(0,0,0,0.5);
+  transition: all 0.5s ease-out;
+}
+
+#container .photo li:hover .block1{height: 100%;}
+
+#container .photo li .block1 .icon{
+  /* 돋보기 아이콘 */
+  font-size: 40px;
+  line-height: 250px;
+  opacity: 0;
+  transition: all 0.5s ease-out;
+}
+
+#container .photo li:hover .block1 .icon{opacity: 1;}
+
+
+
+/* 2번 이미지 */
+#container .photo li .block2{
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s ease-in;
+}
+
+#container .photo li:hover .block2{opacity: 1;}
+
+#container .photo li .block2 p{
+  text-transform: uppercase;
+  border: 1px solid #fff;
+  width: 140px;
+  padding: 10px 0;
+}
+
+
+
+/* 3번 이미지 */
+#container .photo li .block3{
+  width: 100%;
+  height: 0;
+  transition: all 0.3s;
+}
+
+#container .photo li:hover .block3{
+  height: 50px;
+}
+
+#container .photo li .block3 p{
+  opacity: 0;
+  line-height: 50px;
+  transition: all 0.3s;
+}
+
+#container .photo li:hover .block3 p{opacity:1;}
+
+
+
+/* 4번 이미지 */
+#container .photo li .block4{
+  width: 100%;
+  height: 0;
+  transition: all 0.3s;
+  bottom: 0; /* 기준점을 bottom위치로 변경 */
+}
+
+#container .photo li:hover .block4{height: 50px;}
+
+#container .photo li .block4 p{
+  opacity: 0;
+  line-height: 50px;
+  transition: all 0.3s;
+}
+
+#container .photo li:hover .block4 p{opacity:1;}
+
+
+
+/* 5번 이미지 */
+#container .photo li .block5{
+  width: 0;
+  height: 100%;
+  transition: all 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#container .photo li:hover .block5{width: 100%;}
+
+#container .photo li .block5 p{
+  opacity: 0;
+  transition: all 0.3s;
+}
+
+#container .photo li:hover .block5 p{opacity:1;}
+
+
+
+/* 6번 이미지 */
+#container .photo li .block6{
+  /* width: 0;
+  height: 0; -> width/height는 시작의 중심점이 가운데가 아니고 왼쪽 위가 됨 -> transform:scale을 써야 함*/
+  width: 100%;
+  height: 100%; /* 중심점이 아니라 '크기 지정' */
+  transform: scale(0,0);
+  opacity: 0;
+  transition: all 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#container .photo li:hover .block6{
+  /* width: 100%;
+  height: 100%; */
+  transform: scale(1,1);
+  opacity: 1;
+}
+
+
+
+/* 7번 이미지 */
+#container .photo li .block7{
+  width: 100%;
+  height: 100%;
+  transform: scale(1,1);
+  transition: all 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+}
+
+#container .photo li:hover .block7{
+  transform: scale(0,0);
+  opacity: 0;
+}
+
+
+
+/* 8번 이미지 */
+#container .photo li:nth-child(8){
+  overflow: hidden; /* 자식이 부모보다 넘치지 않게 하기 위함 */
+}
+
+#container .photo li:nth-child(8) img{transition: all 0.5s;}
+
+#container .photo li:nth-child(8):hover img{
+  transform: scale(1.4);
+  -webkit-filter: blur(4px); /* 접두사 필요-크롬 */
+  filter: blur(4px); /* 흐림효과 -> filter속성은 익스플로러에서 적용되지 않음 */
+}
+
+
+
+/* 9번 이미지 */
+#container .photo li:nth-child(9){overflow: hidden;}
+
+#container .photo li:nth-child(9) img{transition: all 0.5s;}
+
+#container .photo li:nth-child(9):hover img{
+  transform: scale(1.4);
+  -webkit-filter: grayscale(100%);
+  filter: grayscle(100%); 
+}
+
+
+
+/* footer */
+#footer{
+  color: #666;
+  font-style: italic;
+  text-align: center;
+  padding-bottom: 100px;
+  /* 다음 내용이 없는 마지막 하단에는 margin-bottom 속성이 적용 안됨 */
+}
