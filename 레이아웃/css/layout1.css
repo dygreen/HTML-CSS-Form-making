@@ -1,0 +1,124 @@
+@import url(common.css);
+
+#wrap{
+  width: 1000px;
+  margin: 0 auto;
+}
+
+/* 🎈 header 🎈 */
+#header{
+  height: 150px;
+  background: pink;
+}
+
+
+/* util menu */
+.utilMenu{
+  height: 50px;
+  /* background: yellow; */
+  /* text-align: right; */
+}
+
+.utilMenu ul{float: right; margin-top: 5px;}
+
+.utilMenu ul li{
+  float: left;
+  padding: 0 5px;
+  border-right: 1px solid #999;
+}
+
+.utilMenu ul li:last-child{border-right: none;}
+
+.utilMenu ul li a{color: #666;}
+
+.utilMenu ul li a:hover{color: #000;}
+
+
+/* logo */
+.logo{float: left;}
+
+.logo h1{
+  font-size: 24px;
+  text-shadow: 2px 2px 2px #ccc;
+}
+
+.logo h2{
+  font-size: 16px;
+  color: #999;
+  font-style: italic;
+}
+
+
+/* top menu */
+.topMenu{float: right;}
+
+.topMenu ul li{
+  float: left;
+  padding: 15px 30px;
+}
+
+.topMenu ul li:first-child{
+  background: #ccc;
+  border-radius: 20px 0 0 20px;
+}
+.topMenu ul li:last-child{
+  background: #ccc;
+  border-radius: 0 20px 20px 0;
+}
+.topMenu ul li:nth-child(2n){background: #666;}
+.topMenu ul li:nth-child(3){background: #ccc;}
+
+.topMenu ul li a{
+  color: #fff;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.topMenu ul li a:hover{
+  color: #000;
+  font-weight: 800;
+}
+
+
+/* 🎈 contents 🎈 */
+/* left */
+.leftContent{
+  width: 750px;
+  float: left;
+}
+
+.content1, .content2, .content3{
+  height: 150px;
+  border: 1px solid #000;
+  background: #e8e8e8;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+#contents h3{
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+#contents p{line-height: 22px;}
+
+/* right */
+.rightBanner{
+  width: 200px;
+  float: right;
+}
+
+
+/* 🎈 footer 🎈 */
+#footer{
+  width: 1000px;
+  height: 100px;
+  background: #ccc;
+  border: 1px solid #000;
+  /* line-height: 100px; 
+  text-align: center; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
