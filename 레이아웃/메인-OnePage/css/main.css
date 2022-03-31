@@ -1,2 +1,303 @@
 @import url(common.css);
 
+/* top btn */
+#top_btn{ /* 위치 설정 */
+ position: fixed;
+ right: 0;
+ bottom: 0;
+ z-index: 1000;
+}
+
+#top_btn a.active{ /* 버튼 설정 */
+  width: 60px;
+  height: 60px;
+  display: block; /* a태그는 inline태그이기 때문에 width/height가 먹지 않음 -> block으로 바꾸기 */
+  background: url(../image/top.png) no-repeat;
+  transition: all 0.3s;
+}
+
+#top_btn a.active:hover{
+  background: url(../image/top_on.png) no-repeat;
+}
+
+
+
+/* ✨ header ✨ */
+header{ /* 헤더영역 전체 가로 100% +비주얼배경 이미지 */
+  width: 100%;
+  height: 660px;
+  background: url(../image/visual.png) no-repeat bottom center;
+  background-size: cover; /* 배경 full 100% */
+  position: relative; /* 부모기준설정 */
+}
+
+/* Top menu-bar */
+.header_in{ /* 메뉴바 가로 100%를 사용하기 위한 부모 */
+  width: 100%;
+  height: 87px;
+  background: #8080c0;
+}
+
+.topMenuBar{ /* 실제 차지하는 콘텐츠의 가로크기 + 요소 가운데 정렬 */
+  width: 1100px;
+  margin: 0 auto;
+}
+
+.left_logo{ /* 로고 */
+  float: left;
+  padding-top: 25px;
+}
+
+nav{float: right;}
+
+nav ul li{
+  float: left;
+  padding: 0 15px;
+}
+
+nav ul li a{
+  color: #fff;
+  font-size: 16px;
+  line-height: 87px;
+}
+
+nav ul li a:hover{color: lightsalmon;}
+
+/* caption */
+.caption{
+  width: 100%;
+  position: absolute; /* 자식설정 */
+  text-align: center;
+  top: 45%;
+}
+
+.caption h2{
+  font-family: "Century Gothic", arial;
+  font-weight: 100;
+  color: lightsalmon;
+  font-size: 70px;
+}
+
+.caption h3{
+  font-family: arial;
+  font-weight: 100;
+  color: #fff;
+  font-size: 15px;
+}
+
+
+
+/* ✨ section ✨ */
+section{
+  width: 100%; 
+  text-align: center;
+}
+
+section h4{
+  font-family: arial;
+  color: #232323;
+  font-size: 28px;
+}
+
+section h5{
+  color: #666;
+  font-size: 16px;
+}
+
+section h6{
+  color: #8080c0;
+  font-size: 18px;
+  text-transform: capitalize;
+  margin: 10px 0;
+}
+
+section p{
+  font-family: "Century Gothic", Arial;
+  color: #666;
+  line-height: 23px;
+}
+
+/* about */
+section #about{padding: 50px 0;}
+
+.ab_num{
+  height: 200px;
+  background: #eee;
+  margin-top: 20px;
+}
+
+.ab_num ul{display: inline-block;}
+
+.ab_num ul li{
+  float: left;
+  margin: 50px 30px;
+}
+
+.ab_num ul li .material-icons{
+  font-size: 50px;
+  color: #4f4e4d;
+  vertical-align: top; /* 아이콘 옆 글자의 수직정렬 */
+}
+
+.ab_num ul li .num{
+  font-size: 42px;
+  color: #4f4e4d;
+  font-weight: bold;
+  padding-left: 20px;
+}
+
+.ab_num ul li .ntext{
+  font-size: 20px;
+  color: #666;
+  text-transform: uppercase;
+  padding-left: 70px;
+}
+
+/* skill */
+section #our_skill{padding: 50px 0;}
+
+.stick ul{display: inline-block; margin-top: 20px;}
+
+.stick ul li{
+  float: left;
+  width: 520px;
+  height: 30px;
+  background: #ccc;
+  margin: 0 20px;
+}
+
+.stick ul li .block1{
+  width: 480px;
+  height: 30px;
+  background: #0c7777;
+}
+
+.stick ul li .block2{
+  width: 400px;
+  height: 30px;
+  background: #0cc;
+}
+
+.stick ul li .per{ /* 백분율표시 text */
+  font-family: 돋움체;
+  color: #fff;
+  text-align: left;
+  padding: 2px 0 0 20px;
+}
+
+/* service */
+section #our_service{padding: 50px 0;}
+.service_img ul{display: inline-block;}
+.service_img ul li{
+  float: left;
+  width: 250px;
+  height: 250px;
+  border: 1px solid #ccc;
+  margin: 20px 10px;
+  display: flex;
+  flex-direction: column; /* 방향을 위에서 아래로 */
+  justify-content: center;
+  align-items: center;
+}
+
+/* portfolio */
+section #our_portf{
+  padding: 50px 0;
+  height: 900px;
+  background: #ccc;
+}
+
+#our_portf ul{display: inline-block; margin-top: 30px;}
+
+#our_portf ul li{float: left;}
+
+#our_portf ul li a{
+  padding: 10px 60px;
+  color: #333;
+  font-size: 12px;
+}
+
+#our_portf ul li:first-child a{border-bottom: 2px solid #09f;}
+
+.portf_img{
+  width: 1100px;
+  margin: 30px auto;
+}
+
+.portf_img ul li{margin-bottom: 30px;}
+
+.btn{/* btn */
+  width: 200px;
+  height: 45px;
+  line-height: 45px;
+  border: 1px solid #ccc;
+  background: #fff;
+  border-radius: 5px;
+  margin: 0 auto;
+}
+
+.btn:hover{
+  border: 1px solid #09f;
+  cursor: pointer;
+}
+
+/* team */
+section #our_team{padding: 50px 0;}
+
+.team_img ul{
+  display: inline-block;
+  margin-top: 50px;
+}
+
+.team_img ul li{
+  float: left;
+  margin: 0 20px;
+}
+
+.team_img .title{
+  width: 210px;
+}
+
+/* blog */
+section #our_blog{padding: 50px 0;}
+
+.blog_img ul{
+  display: inline-block;
+  margin-top: 50px;
+}
+
+.blog_img ul li{
+  float: left;
+  margin: 0 10px;
+}
+
+.blog_img .btitle{
+  width: 350px;
+}
+
+.btitle .read1{text-align: left;}
+
+.btitle .read2{
+  text-decoration: underline;
+  text-align: left;
+  margin: 20px 0 50px 0;
+}
+
+/* ✨ footer ✨ */
+footer{
+  width: 100%;
+  height: 150px;
+  background: #ccc;
+  text-align: center;
+}
+
+footer p{
+  color: #666;
+  padding-top: 50px;
+}
+
+address{
+  font-size: 13px;
+  margin-top: 20px;
+  font-style: normal; /* address태그의 기본적인 기울임해제 */
+}
