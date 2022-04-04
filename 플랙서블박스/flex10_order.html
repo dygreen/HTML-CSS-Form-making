@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>flex10_order_자식</title>
+  <style>
+    .container{
+          height: 500px;
+          margin: 0 auto;
+          display: flex;
+          border: 3px solid #333;
+      }
+      
+      .container p{
+          text-align: center;
+      }
+      
+      .box1{
+          background: #d8ae16;
+          flex-basis: 60%;
+          order: 2;
+      }
+      .box2{
+          background: green; 
+          flex-basis: 30%;
+          order: 1;
+      }
+      .box3{
+          background: blue; 
+          flex-basis: 30%; 
+          order: 3;
+      }
+    /*order속성: 자식들의 배치순서를 바꿀 수 있다.
+      다만, 이 속성은 웹접근성에는 맞지 않기 때문에 신중하게 사용해야 함(카드 리더기에서 읽을 수 없음)*/
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="box1"><p>1</p></div>
+    <div class="box2"><p>2</p></div>
+    <div class="box3"><p>3</p></div>
+  </div>
+</body>
+</html>
