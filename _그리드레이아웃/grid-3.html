@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<title>그리드 레이아웃</title>
+<style>
+  .wrapper{
+    display: grid;
+    grid-template-columns:1fr 2fr 1fr;
+    grid-gap: 20px;
+  }
+
+  .items{
+    padding: 10px;
+    background-color: #eee;
+  }
+
+  .items:nth-child(odd){
+    background: #bbb;
+  }
+</style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="items">Lorem ipsum dolor sit.Lorem ipsum dolor, sit amet consectetur adipisicing elit</div>
+    <div class="items">Lorem ipsum dolor, sit amet consectetur adipisicing elit.Lorem ipsum dolor, sit amet consectetur adipisicing elit</div>
+    <div class="items">Lorem ipsum dolor sit amet.Lorem ipsum dolor, sit amet consectetur adipisicing elit</div>
+    <div class="items">Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, reprehenderit.Lorem ipsum dolor, sit amet consectetur adipisicing elit</div>
+    <div class="items">Lorem, ipsum dolor.</div>
+  </div>
+</body>
+</html>
+
+<!-- 
+grid-column-gap:칼럼과 칼럼사이의 간격
+grid-row-gap:줄과 줄사이의 간격
+grid-gap:칼럼과 줄 사이의 간격을 한꺼번에 지정
+-->

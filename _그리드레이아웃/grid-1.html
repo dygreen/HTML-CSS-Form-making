@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<title>그리드 레이아웃</title>
+<style>
+  .wrapper{
+    display: grid;
+    grid-template-columns: 200px 200px 200px;
+    /* grid-template-rows: 100px 200px; -> 부모보다 내용이 많으면 넘친다. */
+    grid-template-rows: minmax(100px auto);
+  }
+
+  .items{
+    padding: 10px;
+    background-color: #eee;
+  }
+
+  .items:nth-child(odd){
+    background: #bbb;
+  }
+</style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="items">Lorem ipsum dolor sit.Lorem ipsum dolor, sit amet consectetur adipisicing elit</div>
+    <div class="items">Lorem ipsum dolor, sit amet consectetur adipisicing elit.Lorem ipsum dolor, sit amet consectetur adipisicing elit</div>
+    <div class="items">Lorem ipsum dolor sit amet.Lorem ipsum dolor, sit amet consectetur adipisicing elit</div>
+    <div class="items">Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, reprehenderit.Lorem ipsum dolor, sit amet consectetur adipisicing elit</div>
+    <div class="items">Lorem, ipsum dolor.</div>
+  </div>
+</body>
+</html>
+
+<!-- 
+플렉서블박스에서는 플렉스 아이템을 배치할때 가로나 세로 중 하나를 주축으로 정해놓고 배치한다.
+반면에 그리드 레이아웃에서는 그리드 항목을 배치할떄 가로와 세로를 모두 사용한다.
+그래서 플렉스아이템은 1차원이고, 그리드 레이아웃은 2차원이라고 이야기한다.
+
+display: grid; 컨테이너의 width는 100%가 된다.
+display: inline-grid; 컨테이너 내부의 콘텐츠 넓이만큼 컨테이너의 넓이가 된다.
+
+grid-template-columns:그리드컨테이너 안의 항목을 몇개의 칼럼으로 배치할지, 각 칼럼의 너비를 얼마로 할지 지정한다.
+grid-template-rows: 그리드컨테이너 안의 각 항목의 높이를 지정한다.
+
+지정한 줄의 높이보다 내용이 더 많을 경우에는 내용이 밖으로 넘쳐 버린다.
+넘치는것을 방지하기 위해 사용하는 함수가 minmax() 이다. 줄의 높이를 지정할때 최소값과 최대값을 지정한다.
+
+-->

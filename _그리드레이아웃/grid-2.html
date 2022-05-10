@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<title>그리드 레이아웃</title>
+<style>
+  .wrapper{
+    display: grid;
+    /* grid-template-columns:1fr 1fr 1fr; -> 1:1:1 */
+    grid-template-columns:repeat(3, 1fr);
+    /* grid-column-gap: 30px; */ /* gap = margin 개념 */
+    /* grid-row-gap: 20px; */
+    grid-gap: 20px 30px; /* 축약(순서o): 첫번째 값은 grid-row-gap, 두번째 값은 grid-column-gap */
+  }
+
+  .items{
+    padding: 10px;
+    background-color: #eee;
+  }
+
+  .items:nth-child(odd){
+    background: #bbb;
+  }
+
+</style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="items">Lorem ipsum dolor sit.Lorem ipsum dolor, sit amet consectetur adipisicing elit</div>
+    <div class="items">Lorem ipsum dolor, sit amet consectetur adipisicing elit.Lorem ipsum dolor, sit amet consectetur adipisicing elit</div>
+    <div class="items">Lorem ipsum dolor sit amet.Lorem ipsum dolor, sit amet consectetur adipisicing elit</div>
+    <div class="items">Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, reprehenderit.Lorem ipsum dolor, sit amet consectetur adipisicing elit</div>
+    <div class="items">Lorem, ipsum dolor.</div>
+  </div>
+</body>
+</html>
+
+<!-- 
+grid-template-columns:px를 사용하면 고정되기 때문에 반응형웹에 맞게 하기 위해 상대적인 크기를 지정할수 있도록 
+그리드레이아웃에서는 fr(Fraction)단위를 사용한다.
+
+grid-template-columns:1fr 1fr 1fr; ->1:1:1
+grid-template-columns:repeat(3, 1fr); ->반복
+-->
