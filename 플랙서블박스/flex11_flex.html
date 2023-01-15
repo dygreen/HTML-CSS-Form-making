@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>flex 연구</title>
+  <style>
+    /* tablet 레이아웃 */
+    .container {
+      display: flex;
+      height: 500px;
+      margin: 0 auto;
+      border: 3px solid #333;
+      flex-wrap: wrap;
+    }
+
+    .box1 {
+      background: pink;
+      width: 100%;
+    }
+
+    .box2 {
+      background: greenyellow;
+      flex: 1 1 60%;
+    }
+    
+    .box3 {
+      background: cadetblue;
+      flex: 1 1 40%;
+    }
+    
+    /* pc 레이아웃 */
+    .container2 {
+      display: flex;
+      flex-direction: column;
+      height: 500px;
+      margin: 10px auto;
+      border: 3px solid #333;
+      flex-wrap: wrap;
+    }
+
+    .box11 {
+      background: pink;
+      width: 60%;
+      height: 50%;
+    }
+    
+    .box22 {
+      background: greenyellow;
+      height: 50%;
+    }
+    
+    .box33 {
+      background: cadetblue;
+      width: 40%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="box1">box1</div>
+    <div class="box2">box2</div>
+    <div class="box3">box3</div>
+  </div>
+  <div class="container2">
+    <div class="box11">box11</div>
+    <div class="box22">box22</div>
+    <div class="box33">box33</div>
+  </div>
+</body>
+</html>
